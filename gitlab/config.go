@@ -72,6 +72,8 @@ func (c *Config) Client() (interface{}, error) {
 		return nil, err
 	}
 
+	client.UserAgent = "gitlab-terraform-provider"
+
 	// Test the credentials by checking we can get information about the authenticated user.
 	_, _, err = client.Users.CurrentUser()
 
